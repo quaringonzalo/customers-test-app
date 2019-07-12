@@ -64,6 +64,17 @@ extension AppDelegate : GIDSignInDelegate {
             print(error)
             return
         }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        
+        Auth.auth().signIn(with: credential, completion: { [weak self] (authResult, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+        })
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {

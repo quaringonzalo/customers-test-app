@@ -36,13 +36,26 @@
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="c5o-Qn-15d"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQJ-9o-wEO">
+                    <rect key="frame" x="32" y="459" width="311" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="PRO-yY-Hfg"/>
+                    </constraints>
+                    <state key="normal" title="Logout"/>
+                    <connections>
+                        <action selector="onLogout:" destination="-1" eventType="touchUpInside" id="RGj-kb-bXc"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="aA1-d0-ojR" firstAttribute="top" secondItem="vQJ-9o-wEO" secondAttribute="bottom" constant="16" id="0Bk-gg-ohP"/>
+                <constraint firstItem="vQJ-9o-wEO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="AFN-1y-Fuu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mvo-8t-Tqy" secondAttribute="trailing" constant="32" id="Nks-3N-B0a"/>
                 <constraint firstItem="mvo-8t-Tqy" firstAttribute="top" secondItem="aA1-d0-ojR" secondAttribute="bottom" constant="16" id="O9G-wH-k4r"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aA1-d0-ojR" secondAttribute="trailing" constant="32" id="S01-JR-Jyd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="mvo-8t-Tqy" secondAttribute="bottom" constant="32" id="mWS-pP-OoR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vQJ-9o-wEO" secondAttribute="trailing" constant="32" id="mbV-1T-lmX"/>
                 <constraint firstItem="mvo-8t-Tqy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="vBB-3N-Lbi"/>
                 <constraint firstItem="aA1-d0-ojR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="vBx-1c-Njl"/>
             </constraints>

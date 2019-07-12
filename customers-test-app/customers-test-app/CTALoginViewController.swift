@@ -24,6 +24,17 @@ class CTALoginViewController: UIViewController, LoginButtonDelegate, GIDSignInUI
         GIDSignIn.sharedInstance().uiDelegate = self
     }
     
+    @IBAction func onLogout(_ sender: Any) {
+        do {
+            try 
+                Auth.auth().signOut()
+                GIDSignIn.sharedInstance().signOut()
+                GIDSignIn.sharedInstance().disconnect()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+    }
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
 
         if let error = error {
@@ -35,13 +46,13 @@ class CTALoginViewController: UIViewController, LoginButtonDelegate, GIDSignInUI
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
         
-        Auth.auth().signIn(with: credential, completion: { (authResult, error) in
+        Auth.auth().signIn(with: credential, completion: { [weak self] (authResult, error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
             }
             
-            print("user loged with google")
+            self?.saveCustomer(authResult)
         })
         
     }
@@ -55,45 +66,13 @@ class CTALoginViewController: UIViewController, LoginButtonDelegate, GIDSignInUI
         if let accesssToken = AccessToken.current?.tokenString {
             let credential = FacebookAuthProvider.credential(withAccessToken: accesssToken)
             
-            Auth.auth().signIn(with: credential, completion: {(authResult, error) in 
+            Auth.auth().signIn(with: credential, completion: { [weak self] (authResult, error) in 
                 guard error == nil else {
                     print(error!.localizedDescription)
                     return 
                 }
                 
-                if let email = authResult?.user.email {
-                    print(email)
-                    var ref: DatabaseReference!
-                    ref = Database.database().reference().child("users")
-                    
-                    let key = ref.childByAutoId().key
-                    let customer = ["username": "usuarioPrueba"]
-                    
-                    
-                    ref.child(key!).setValue(customer){ (err, resp) in
-                        guard err == nil else {
-                            print("Posting failed : ")
-                            print(err?.localizedDescription)
-                            
-                            return
-                        }
-                        print("No errors while posting, :")
-                        print(resp)
-                    }                    
-                    //                    ref.child("TZhMCBDY4PyPUDyTJONQ").setValue(["username" : authResult?.user.displayName])
-                    //                    let newCustomer = ref.childByAutoId()
-                    //                    newCustomer.updateChildValues(["username" : ])
-                    
-                    
-                    //                    guard let key = ref.childByAutoId().key else { return }
-                    //                    let customer = ["username": authResult?.user.displayName]
-                    //                    let udpates = ["/users/\(key)": customer]
-                    //                    
-                    //                    ref.updateChildValues(udpates)
-                    
-                } else {
-                    print("email is empty")
-                }
+                self?.saveCustomer(authResult)
             })
             
         }else {
@@ -103,6 +82,32 @@ class CTALoginViewController: UIViewController, LoginButtonDelegate, GIDSignInUI
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         print("User logout")
+    }
+    
+    private func saveCustomer(_ authResult: AuthDataResult?) {
+        if let email = authResult?.user.email {
+            print(email)
+            var ref: DatabaseReference!
+            ref = Database.database().reference().child("users")
+            
+            let key = ref.childByAutoId().key
+            let customer = ["username": authResult!.user.email]
+            
+            
+            ref.child(key!).setValue(customer){ (err, resp) in
+                guard err == nil else {
+                    print("Posting failed : ")
+                    print(err?.localizedDescription as Any)
+                    
+                    return
+                }
+                print("No errors while posting, :")
+                print(resp)
+            }                    
+            
+        } else {
+            print("email is empty")
+        }
     }
     
 }
