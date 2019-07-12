@@ -6,11 +6,11 @@ target 'customers-test-app' do
   use_frameworks!
 
   # Pods for customers-test-app
+  pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'FBSDKLoginKit'
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
-  pod 'GoogleSignIn'
 
   target 'customers-test-appTests' do
     inherit! :search_paths

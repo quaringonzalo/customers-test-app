@@ -9,9 +9,8 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
-import GoogleSignIn
 
-class CTALoginViewController: UIViewController, LoginButtonDelegate, GIDSignInUIDelegate {
+class CTALoginViewController: UIViewController, LoginButtonDelegate {
     
     @IBOutlet weak var fbLoginButton: FBLoginButton!
     
@@ -20,41 +19,23 @@ class CTALoginViewController: UIViewController, LoginButtonDelegate, GIDSignInUI
         
         fbLoginButton.delegate = self
         fbLoginButton.permissions = ["email"]
-        
-        GIDSignIn.sharedInstance().uiDelegate = self
-    }
     
-    @IBAction func onLogout(_ sender: Any) {
-        do {
-            try 
-                Auth.auth().signOut()
-                GIDSignIn.sharedInstance().signOut()
-                GIDSignIn.sharedInstance().disconnect()
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
-        }
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
+        let image = UIImage(named: "cta_login_background")
         
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
+        view.backgroundColor = UIColor(patternImage: image!)
         
-        Auth.auth().signIn(with: credential, completion: { [weak self] (authResult, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
+        Auth.auth().addStateDidChangeListener({ [weak self] (auth, user)  in
+            if user != nil {
+                let customerViewController = CTACustomerViewController()
+                self?.navigationController?.pushViewController(customerViewController, animated: true)
             }
-            
-            self?.saveCustomer(authResult)
         })
-        
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
@@ -65,6 +46,7 @@ class CTALoginViewController: UIViewController, LoginButtonDelegate, GIDSignInUI
         
         if let accesssToken = AccessToken.current?.tokenString {
             let credential = FacebookAuthProvider.credential(withAccessToken: accesssToken)
+
             
             Auth.auth().signIn(with: credential, completion: { [weak self] (authResult, error) in 
                 guard error == nil else {
@@ -73,11 +55,13 @@ class CTALoginViewController: UIViewController, LoginButtonDelegate, GIDSignInUI
                 }
                 
                 self?.saveCustomer(authResult)
+                
             })
             
         }else {
             print("Token error")
         }
+        
     }
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
