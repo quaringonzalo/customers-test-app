@@ -11,6 +11,7 @@ target 'customers-test-app' do
   pod 'FBSDKLoginKit'
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
+  pod 'MaterialComponents/Snackbar'
 
   target 'customers-test-appTests' do
     inherit! :search_paths

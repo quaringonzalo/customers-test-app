@@ -8,8 +8,8 @@
 
 import UIKit
 import Firebase
-import GoogleSignIn
 import FBSDKLoginKit
+import MaterialComponents.MaterialSnackbar
 
 class CTACustomerViewController: UIViewController {
 
@@ -20,7 +20,42 @@ class CTACustomerViewController: UIViewController {
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var birthdateDatePicker: UIDatePicker!
     
-    @IBAction func noSaveTapped(_ sender: Any) {
+    @IBAction func onSave(_ sender: Any) {
+        
+        
+        //TODO: Agregar validación de datos requeridos
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/YYYY"
+        let birthdate = dateFormatter.string(from: birthdateDatePicker.date)
+        let name = nameTextField.text
+        let lastname = lastnameTextField.text
+        let age = ageTextField.text
+        
+        
+        //TODO Revisart en proyecto de github firebase
+        var ref: DatabaseReference!
+        ref = Database.database().reference().child("customers")
+        
+        let key = ref.childByAutoId().key
+        let customer = ["name": name,
+                        "lastname": lastname,
+                        "age": age,
+                        "birthdate": birthdate]
+        
+        ref.child(key!).setValue(customer){ (err, resp) in            
+            guard err == nil else {
+                print("Posting failed : \(err?.localizedDescription as Any)")
+                return
+            }
+            
+            //TODO mover esto a una función
+            let message = MDCSnackbarMessage(text: "Los datos se guardaron correctamente")
+            MDCSnackbarManager.show(message)
+            
+            //TODO Función para limpiar los campos
+                        
+        }                    
         
     }
     
@@ -49,9 +84,20 @@ class CTACustomerViewController: UIViewController {
         
         name.text = Auth.auth().currentUser?.displayName
         
+        //Crear una extensión de textfield para hacer esto
         nameTextField.addLine(position: .LINE_POSITION_BOTTOM, color: UIColor.darkGray, width: 1)
         lastnameTextField.addLine(position: .LINE_POSITION_BOTTOM, color: UIColor.darkGray, width: 1)
         ageTextField.addLine(position: .LINE_POSITION_BOTTOM, color: UIColor.darkGray, width: 1)
+        
+        
+        //TODO Mover esto a un controller para popular una collectionView
+        var ref: DatabaseReference!
+        ref = Database.database().reference().child("customers")
+        
+        ref.observeSingleEvent(of: DataEventType.value, with: {(snapshot) in
+            let result = snapshot.value as? [AnyHashable : Any]
+            print(result)
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,8 +113,6 @@ class CTACustomerViewController: UIViewController {
             
             Auth.auth().signOut()
             LoginManager().logOut()
-            GIDSignIn.sharedInstance().signOut()
-            GIDSignIn.sharedInstance().disconnect()
             navigationController?.popToRootViewController(animated: true)
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)

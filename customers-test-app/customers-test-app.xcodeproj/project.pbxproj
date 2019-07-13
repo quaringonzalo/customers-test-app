@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		04DE5282B075BE8C290124E2 /* Pods_customers_test_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC9720652E1911FC877844B /* Pods_customers_test_appTests.framework */; };
 		168422E422D6D91F00D8AC7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168422E322D6D91F00D8AC7C /* AppDelegate.swift */; };
-		168422EB22D6D92000D8AC7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 168422EA22D6D92000D8AC7C /* Assets.xcassets */; };
 		168422EE22D6D92000D8AC7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168422EC22D6D92000D8AC7C /* LaunchScreen.storyboard */; };
 		168422F922D6D92000D8AC7C /* customers_test_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168422F822D6D92000D8AC7C /* customers_test_appTests.swift */; };
 		1684230622D7B0F700D8AC7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1684230522D7B0F700D8AC7C /* GoogleService-Info.plist */; };
@@ -18,6 +17,7 @@
 		1684231022D7DFDA00D8AC7C /* CTAConstantHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684230F22D7DFDA00D8AC7C /* CTAConstantHelper.swift */; };
 		1684231522D7E39000D8AC7C /* CTALoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684231322D7E39000D8AC7C /* CTALoginViewController.swift */; };
 		1684231622D7E39000D8AC7C /* CTALoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1684231422D7E39000D8AC7C /* CTALoginViewController.xib */; };
+		1684232322D90A1300D8AC7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1684232222D90A1300D8AC7C /* Assets.xcassets */; };
 		92481AB4D45E6D341378AFD5 /* Pods_customers_test_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F83695B855CCBEFD868F035 /* Pods_customers_test_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +35,6 @@
 		0487679A4702257548C5E6B0 /* Pods-customers-test-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-customers-test-appTests.debug.xcconfig"; path = "Target Support Files/Pods-customers-test-appTests/Pods-customers-test-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		168422E022D6D91F00D8AC7C /* customers-test-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "customers-test-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		168422E322D6D91F00D8AC7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		168422EA22D6D92000D8AC7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		168422ED22D6D92000D8AC7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		168422EF22D6D92000D8AC7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		168422F422D6D92000D8AC7C /* customers-test-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "customers-test-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +46,7 @@
 		1684230F22D7DFDA00D8AC7C /* CTAConstantHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAConstantHelper.swift; sourceTree = "<group>"; };
 		1684231322D7E39000D8AC7C /* CTALoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTALoginViewController.swift; sourceTree = "<group>"; };
 		1684231422D7E39000D8AC7C /* CTALoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CTALoginViewController.xib; sourceTree = "<group>"; };
+		1684232222D90A1300D8AC7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34244BEAD461034F497E1AD7 /* Pods-customers-test-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-customers-test-appTests.release.xcconfig"; path = "Target Support Files/Pods-customers-test-appTests/Pods-customers-test-appTests.release.xcconfig"; sourceTree = "<group>"; };
 		45DA6B861E9AA7C003C37897 /* Pods-customers-test-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-customers-test-app.release.xcconfig"; path = "Target Support Files/Pods-customers-test-app/Pods-customers-test-app.release.xcconfig"; sourceTree = "<group>"; };
 		570F0C2EC8D6A3B08A6B781A /* Pods-customers-test-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-customers-test-app.debug.xcconfig"; path = "Target Support Files/Pods-customers-test-app/Pods-customers-test-app.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,11 +97,11 @@
 		168422E222D6D91F00D8AC7C /* customers-test-app */ = {
 			isa = PBXGroup;
 			children = (
+				1684232222D90A1300D8AC7C /* Assets.xcassets */,
 				1684230C22D7DF4E00D8AC7C /* CTACustomerViewController.swift */,
 				1684230B22D7DF4E00D8AC7C /* CTACustomerViewController.xib */,
 				1684230522D7B0F700D8AC7C /* GoogleService-Info.plist */,
 				168422E322D6D91F00D8AC7C /* AppDelegate.swift */,
-				168422EA22D6D92000D8AC7C /* Assets.xcassets */,
 				168422EC22D6D92000D8AC7C /* LaunchScreen.storyboard */,
 				168422EF22D6D92000D8AC7C /* Info.plist */,
 				1684230F22D7DFDA00D8AC7C /* CTAConstantHelper.swift */,
@@ -152,7 +152,6 @@
 				168422DD22D6D91F00D8AC7C /* Frameworks */,
 				168422DE22D6D91F00D8AC7C /* Resources */,
 				DB804925EA7C79C6AEC2705A /* [CP] Embed Pods Frameworks */,
-				B5ACFAAD6DD11E780375A292 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -228,8 +227,8 @@
 				168422EE22D6D92000D8AC7C /* LaunchScreen.storyboard in Resources */,
 				1684230622D7B0F700D8AC7C /* GoogleService-Info.plist in Resources */,
 				1684231622D7E39000D8AC7C /* CTALoginViewController.xib in Resources */,
-				168422EB22D6D92000D8AC7C /* Assets.xcassets in Resources */,
 				1684230D22D7DF4E00D8AC7C /* CTACustomerViewController.xib in Resources */,
+				1684232322D90A1300D8AC7C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,28 +286,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B5ACFAAD6DD11E780375A292 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-customers-test-app/Pods-customers-test-app-resources.sh",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-customers-test-app/Pods-customers-test-app-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DB804925EA7C79C6AEC2705A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -321,8 +298,10 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -333,8 +312,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
