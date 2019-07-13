@@ -1,4 +1,5 @@
 PODS:
+  - CodableFirebase (0.2.1)
   - FBSDKCoreKit (5.2.1):
     - FBSDKCoreKit/Basics (= 5.2.1)
     - FBSDKCoreKit/Core (= 5.2.1)
@@ -122,6 +123,7 @@ PODS:
   - nanopb/encode (0.3.901)
 
 DEPENDENCIES:
+  - CodableFirebase
   - FBSDKLoginKit
   - Firebase/Analytics
   - Firebase/Auth
@@ -131,6 +133,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - CodableFirebase
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -150,6 +153,7 @@ SPEC REPOS:
     - nanopb
 
 SPEC CHECKSUMS:
+  CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
   FBSDKCoreKit: e1ab8d86f5eea2d7aa6ab12acca3e1d2dcb11983
   FBSDKLoginKit: 6e20e44775ddf4b159a8ca676834325e13d12221
   Firebase: 9445469655a98e9010737f4bc4720e5bda465873
@@ -168,6 +172,6 @@ SPEC CHECKSUMS:
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
-PODFILE CHECKSUM: 87a305ea3b74f06b617d4a78abfc460dec012405
+PODFILE CHECKSUM: a91317e9159389e8a245e057d335df6fff9e5056
 
 COCOAPODS: 1.6.0

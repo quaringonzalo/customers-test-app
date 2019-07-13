@@ -10,6 +10,15 @@ import UIKit
 import Firebase
 import FBSDKLoginKit
 import MaterialComponents.MaterialSnackbar
+import CodableFirebase
+
+//TODO mover a un archivo
+public struct CustomerModel : Codable {
+    let name: String
+    let lastname: String
+    let age: Int
+    let birthdate: String
+}
 
 class CTACustomerViewController: UIViewController {
 
@@ -27,10 +36,12 @@ class CTACustomerViewController: UIViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/YYYY"
+        
+        //Validación de datos opcionales
         let birthdate = dateFormatter.string(from: birthdateDatePicker.date)
-        let name = nameTextField.text
-        let lastname = lastnameTextField.text
-        let age = ageTextField.text
+        let name = nameTextField.text!
+        let lastname = lastnameTextField.text!
+        let age = Int(ageTextField.text!)!
         
         
         //TODO Revisart en proyecto de github firebase
@@ -38,24 +49,32 @@ class CTACustomerViewController: UIViewController {
         ref = Database.database().reference().child("customers")
         
         let key = ref.childByAutoId().key
-        let customer = ["name": name,
-                        "lastname": lastname,
-                        "age": age,
-                        "birthdate": birthdate]
+        let customer = CustomerModel(name: name, lastname: lastname, age: age, birthdate: birthdate)
+//        let customer = ["name": name,
+//                        "lastname": lastname,
+//                        "age": age,
+//                        "birthdate": birthdate]
         
-        ref.child(key!).setValue(customer){ (err, resp) in            
-            guard err == nil else {
-                print("Posting failed : \(err?.localizedDescription as Any)")
-                return
-            }
+        
+        do {
+            let model = try FirebaseEncoder().encode(customer)
+            ref.child(key!).setValue(model){ (err, resp) in            
+                guard err == nil else {
+                    print("Posting failed : \(err?.localizedDescription as Any)")
+                    return
+                }
+                
+                //TODO mover esto a una función
+                let message = MDCSnackbarMessage(text: "Los datos se guardaron correctamente")
+                MDCSnackbarManager.show(message)
+                
+                //TODO Función para limpiar los campos
+                
+            }    
             
-            //TODO mover esto a una función
-            let message = MDCSnackbarMessage(text: "Los datos se guardaron correctamente")
-            MDCSnackbarManager.show(message)
-            
-            //TODO Función para limpiar los campos
-                        
-        }                    
+        } catch let error {
+            print(error)
+        }               
         
     }
     
@@ -95,8 +114,19 @@ class CTACustomerViewController: UIViewController {
         ref = Database.database().reference().child("customers")
         
         ref.observeSingleEvent(of: DataEventType.value, with: {(snapshot) in
-            let result = snapshot.value as? [AnyHashable : Any]
-            print(result)
+            guard let value = snapshot.value else { return }
+            
+            do {
+                
+                let customerList = try FirebaseDecoder().decode([String:CustomerModel].self, from: value)
+                
+                let customerArray : [CustomerModel] = customerList.map { $0.value }
+                print(customerArray)
+                
+            }catch let error {
+                print("ERROR: \(error)")
+            }
+            
         })
     }
     
