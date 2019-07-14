@@ -29,7 +29,6 @@ class CTACustomerViewController: CTABaseViewController {
         super.viewDidLoad()
         title = "Registar cliente"
         
-        
         facebookLoginService = CTAFacebookLoginService()
         facebookLoginService.signOutDelegate = self
         

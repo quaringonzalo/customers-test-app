@@ -26,7 +26,7 @@ public class CTACustomerService: NSObject {
             ref.child(key!).setValue(model){ [weak self] (err, resp) in            
                 
                 guard err == nil else {
-                    self?.failureBlock?("Ocurrió un error. Intente nuevamente!")
+                    self?.failureBlock?(DEFAULT_ERROR)
                     return
                 }
                 
@@ -35,7 +35,7 @@ public class CTACustomerService: NSObject {
             
         } catch let error {
             print(error)
-            failureBlock?("Ocurrió un error. Intente nuevamente!")
+            failureBlock?(DEFAULT_ERROR)
         }  
         
     }

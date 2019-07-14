@@ -9,3 +9,4 @@
 import UIKit
 
 public let EMPTY_STRING = ""
+public let DEFAULT_ERROR = "Ocurrió un error. Intente nuevamente!"
