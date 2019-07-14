@@ -12,7 +12,7 @@ import FBSDKLoginKit
 import MaterialComponents.MaterialSnackbar
 import CodableFirebase
 
-class CTACustomerViewController: UIViewController {
+class CTACustomerViewController: CTABaseViewController {
 
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -33,6 +33,8 @@ class CTACustomerViewController: UIViewController {
         loadUserInfo()
         setupTextFields()
         profilePhoto.setCornerRadiusAndBorder()
+        
+        
         //TODO Mover esto a un controller para popular una collectionView
 //        var ref: DatabaseReference!
 //        ref = Database.database().reference().child("customers")
@@ -56,9 +58,8 @@ class CTACustomerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-        navigationItem.leftBarButtonItem = nil
-        navigationItem.hidesBackButton = true
+        showNavigationBar(show: true)
+        showBackButton(show: false)
     }
     
     private func setupTextFields() {

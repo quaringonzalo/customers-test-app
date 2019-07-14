@@ -24,6 +24,7 @@
 		16BEBA9922DA9B61000AA068 /* UIView+TexFieldLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BEBA9822DA9B61000AA068 /* UIView+TexFieldLines.swift */; };
 		16BEBA9B22DA9BDE000AA068 /* UIImageView+ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BEBA9A22DA9BDE000AA068 /* UIImageView+ImageHelper.swift */; };
 		16BEBA9D22DAA097000AA068 /* CTACustomerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BEBA9C22DAA097000AA068 /* CTACustomerViewModel.swift */; };
+		16BEBAA122DAAB7E000AA068 /* CTABaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BEBAA022DAAB7E000AA068 /* CTABaseViewController.swift */; };
 		92481AB4D45E6D341378AFD5 /* Pods_customers_test_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F83695B855CCBEFD868F035 /* Pods_customers_test_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		16BEBA9822DA9B61000AA068 /* UIView+TexFieldLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TexFieldLines.swift"; sourceTree = "<group>"; };
 		16BEBA9A22DA9BDE000AA068 /* UIImageView+ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageHelper.swift"; sourceTree = "<group>"; };
 		16BEBA9C22DAA097000AA068 /* CTACustomerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTACustomerViewModel.swift; sourceTree = "<group>"; };
+		16BEBAA022DAAB7E000AA068 /* CTABaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTABaseViewController.swift; sourceTree = "<group>"; };
 		34244BEAD461034F497E1AD7 /* Pods-customers-test-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-customers-test-appTests.release.xcconfig"; path = "Target Support Files/Pods-customers-test-appTests/Pods-customers-test-appTests.release.xcconfig"; sourceTree = "<group>"; };
 		45DA6B861E9AA7C003C37897 /* Pods-customers-test-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-customers-test-app.release.xcconfig"; path = "Target Support Files/Pods-customers-test-app/Pods-customers-test-app.release.xcconfig"; sourceTree = "<group>"; };
 		570F0C2EC8D6A3B08A6B781A /* Pods-customers-test-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-customers-test-app.debug.xcconfig"; path = "Target Support Files/Pods-customers-test-app/Pods-customers-test-app.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				16BEBA9322DA9ABF000AA068 /* View */,
 				16BEBA9222DA9AB5000AA068 /* Helpers */,
+				16BEBAA022DAAB7E000AA068 /* CTABaseViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			files = (
 				16BEBA9B22DA9BDE000AA068 /* UIImageView+ImageHelper.swift in Sources */,
 				1684231522D7E39000D8AC7C /* CTALoginViewController.swift in Sources */,
+				16BEBAA122DAAB7E000AA068 /* CTABaseViewController.swift in Sources */,
 				16BEBA8D22DA965B000AA068 /* CTAFacebookLoginService.swift in Sources */,
 				1684231022D7DFDA00D8AC7C /* CTAConstantHelper.swift in Sources */,
 				1684230E22D7DF4E00D8AC7C /* CTACustomerViewController.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FBSDKLoginKit
 
-class CTALoginViewController: UIViewController {
+class CTALoginViewController: CTABaseViewController {
     
     let loginBackgroundImage = "cta_login_background"
     var facebookLoginDelegate : CTAFacebookLoginService!
@@ -32,7 +32,7 @@ class CTALoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        showNavigationBar(show: false)
     }    
 }
 
