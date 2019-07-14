@@ -194,11 +194,8 @@
 		16BEBA9422DA9AE0000AA068 /* Customers */ = {
 			isa = PBXGroup;
 			children = (
-				16BEBAA322DAB3C2000AA068 /* Service */,
-				16BEBAA222DAB0F3000AA068 /* View */,
-				16BEBA9E22DAA09C000AA068 /* ViewModel */,
-				16BEBA9522DA9AEF000AA068 /* Model */,
-				1684230C22D7DF4E00D8AC7C /* CTACustomerViewController.swift */,
+				16BEBAA922DAB8E8000AA068 /* List */,
+				16BEBAA822DAB8D6000AA068 /* Create */,
 			);
 			path = Customers;
 			sourceTree = "<group>";
@@ -233,6 +230,25 @@
 				16BEBAA422DAB3D6000AA068 /* CTACustomerService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		16BEBAA822DAB8D6000AA068 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				16BEBAA322DAB3C2000AA068 /* Service */,
+				16BEBAA222DAB0F3000AA068 /* View */,
+				16BEBA9E22DAA09C000AA068 /* ViewModel */,
+				16BEBA9522DA9AEF000AA068 /* Model */,
+				1684230C22D7DF4E00D8AC7C /* CTACustomerViewController.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		16BEBAA922DAB8E8000AA068 /* List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		5FC2DC117BEEF7A4DC49422B /* Frameworks */ = {

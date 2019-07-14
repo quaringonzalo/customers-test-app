@@ -26,8 +26,7 @@ public class CTAFacebookLoginService: NSObject, LoginButtonDelegate {
     public func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         
         guard error == nil else {
-            //TODO Mostrar error con snackbar
-            print(error!.localizedDescription)
+            CTASnackbarHelper.showMessage(message: error!.localizedDescription)
             return
         } 
         
@@ -36,15 +35,13 @@ public class CTAFacebookLoginService: NSObject, LoginButtonDelegate {
             
             Auth.auth().signIn(with: credential, completion: {(authResult, error) in 
                 guard error == nil else {
-                    //TODO Mostrar error con snackbar
-                    print(error!.localizedDescription)
+                    CTASnackbarHelper.showMessage(message: error!.localizedDescription)
                     return 
                 }                
             })
             
         }else {
-            //TODO Mostrar error con snackbar
-            print("Token error")
+            CTASnackbarHelper.showMessage(message: "Ocurrió un error. Intente nuevamente")
         }
     }
     
@@ -59,8 +56,7 @@ public class CTAFacebookLoginService: NSObject, LoginButtonDelegate {
             LoginManager().logOut()
             signOutDelegate.onSignOut()
         } catch let signOutError as NSError {
-            //TODO Mostrar mensaje de error con snackbar
-            print("Error signing out: %@", signOutError)
+            CTASnackbarHelper.showMessage(message: String(format: "Error signing out: %@", signOutError))
         }
     }
     
