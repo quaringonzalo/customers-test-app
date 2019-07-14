@@ -17,7 +17,7 @@
                 <outlet property="lastnameTextField" destination="E3P-zf-WOF" id="mt4-fk-D1S"/>
                 <outlet property="name" destination="3X7-wE-Fec" id="gHb-DF-lzE"/>
                 <outlet property="nameTextField" destination="wl2-aI-h3m" id="LGJ-Az-bQI"/>
-                <outlet property="photo" destination="K8d-I6-cJb" id="BJT-6J-TQa"/>
+                <outlet property="profilePhoto" destination="K8d-I6-cJb" id="BJT-6J-TQa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
