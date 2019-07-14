@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="ageTextField" destination="8fd-eG-VqS" id="y9r-8R-UHs"/>
                 <outlet property="birthdateDatePicker" destination="CQp-TZ-iSZ" id="Jtl-Rz-9x7"/>
+                <outlet property="errorMessageLabel" destination="YMc-Si-QZ0" id="L4D-yA-Q1s"/>
                 <outlet property="lastnameTextField" destination="E3P-zf-WOF" id="mt4-fk-D1S"/>
                 <outlet property="name" destination="3X7-wE-Fec" id="gHb-DF-lzE"/>
                 <outlet property="nameTextField" destination="wl2-aI-h3m" id="LGJ-Az-bQI"/>
@@ -151,15 +152,26 @@
                                     </constraints>
                                     <state key="normal" title="Consultar clientes"/>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMc-Si-QZ0">
+                                    <rect key="frame" x="32" y="8" width="311" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="pBD-nb-600"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="1" green="0.30184705779999998" blue="0.32749256339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="8fd-eG-VqS" secondAttribute="trailing" constant="200" id="3Oq-aO-uD4"/>
                                 <constraint firstItem="wl2-aI-h3m" firstAttribute="leading" secondItem="Npd-pl-X0m" secondAttribute="leading" constant="32" id="5Ot-fV-vPi"/>
+                                <constraint firstItem="YMc-Si-QZ0" firstAttribute="top" secondItem="Npd-pl-X0m" secondAttribute="top" constant="8" id="D2N-70-TfH"/>
                                 <constraint firstItem="bkV-Vd-nLt" firstAttribute="leading" secondItem="Npd-pl-X0m" secondAttribute="leading" constant="16" id="HCj-qQ-nti"/>
                                 <constraint firstItem="cKZ-BJ-1En" firstAttribute="top" secondItem="8fd-eG-VqS" secondAttribute="bottom" constant="36" id="J6z-ef-alV"/>
                                 <constraint firstItem="wl2-aI-h3m" firstAttribute="top" secondItem="Npd-pl-X0m" secondAttribute="top" constant="36" id="PIc-LC-ZjP"/>
                                 <constraint firstAttribute="bottom" secondItem="K13-kA-fjp" secondAttribute="bottom" constant="8" id="PQ4-SC-JMR"/>
+                                <constraint firstItem="YMc-Si-QZ0" firstAttribute="leading" secondItem="Npd-pl-X0m" secondAttribute="leading" constant="32" id="Pjq-tW-Gag"/>
                                 <constraint firstItem="E3P-zf-WOF" firstAttribute="leading" secondItem="Npd-pl-X0m" secondAttribute="leading" constant="32" id="PvI-r4-f3P"/>
                                 <constraint firstAttribute="trailing" secondItem="K13-kA-fjp" secondAttribute="trailing" constant="16" id="U7q-tF-R0r"/>
                                 <constraint firstAttribute="trailing" secondItem="wl2-aI-h3m" secondAttribute="trailing" constant="32" id="WCj-SX-BAN"/>
@@ -170,6 +182,7 @@
                                 <constraint firstAttribute="trailing" secondItem="CQp-TZ-iSZ" secondAttribute="trailing" constant="32" id="b2N-qx-5Ph"/>
                                 <constraint firstItem="CQp-TZ-iSZ" firstAttribute="leading" secondItem="Npd-pl-X0m" secondAttribute="leading" constant="32" id="bEp-tK-a1S"/>
                                 <constraint firstItem="CQp-TZ-iSZ" firstAttribute="top" secondItem="cKZ-BJ-1En" secondAttribute="bottom" constant="6" id="eVH-sM-bc1"/>
+                                <constraint firstAttribute="trailing" secondItem="YMc-Si-QZ0" secondAttribute="trailing" constant="32" id="fhs-xt-IwT"/>
                                 <constraint firstAttribute="trailing" secondItem="E3P-zf-WOF" secondAttribute="trailing" constant="32" id="ncH-By-noh"/>
                                 <constraint firstItem="8fd-eG-VqS" firstAttribute="top" secondItem="E3P-zf-WOF" secondAttribute="bottom" constant="24" id="qFD-kb-xOS"/>
                                 <constraint firstAttribute="trailing" secondItem="cKZ-BJ-1En" secondAttribute="trailing" constant="32" id="sVF-NZ-0dZ"/>

@@ -20,12 +20,15 @@ class CTACustomerViewController: CTABaseViewController {
     @IBOutlet weak var lastnameTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var birthdateDatePicker: UIDatePicker!
+    @IBOutlet weak var errorMessageLabel: UILabel!
     
     var facebookLoginService : CTAFacebookLoginService!
+    var viewModel : CTACustomerViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Registar cliente"
+        
         
         facebookLoginService = CTAFacebookLoginService()
         facebookLoginService.signOutDelegate = self
@@ -34,6 +37,8 @@ class CTACustomerViewController: CTABaseViewController {
         setupTextFields()
         profilePhoto.setCornerRadiusAndBorder()
         
+        viewModel = CTACustomerViewModel()
+        viewModel.delegate = self
         
         //TODO Mover esto a un controller para popular una collectionView
 //        var ref: DatabaseReference!
@@ -80,43 +85,20 @@ class CTACustomerViewController: CTABaseViewController {
         }
     }
     
+    private func cleanFields(){
+        nameTextField.text = EMPTY_STRING
+        lastnameTextField.text = EMPTY_STRING
+        ageTextField.text = EMPTY_STRING
+        birthdateDatePicker.date = Date.init()
+    }
+    
     @IBAction func onSave(_ sender: Any) {
-        //TODO: Agregar validación de datos requeridos
+        let birthdate = birthdateDatePicker.date
+        let name = nameTextField.text
+        let lastname = lastnameTextField.text
+        let age = ageTextField.text
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/YYYY"
-        
-        //Validación de datos opcionales
-        let birthdate = dateFormatter.string(from: birthdateDatePicker.date)
-        let name = nameTextField.text!
-        let lastname = lastnameTextField.text!
-        let age = Int(ageTextField.text!)!
-        
-        
-        //TODO Revisart en proyecto de github firebase
-        var ref: DatabaseReference!
-        ref = Database.database().reference().child("customers")
-        
-        let key = ref.childByAutoId().key
-        let customer = CustomerModel(name: name, lastname: lastname, age: age, birthdate: birthdate)
-        
-        
-        do {
-            let model = try FirebaseEncoder().encode(customer)
-            ref.child(key!).setValue(model){ (err, resp) in            
-                guard err == nil else {
-                    print("Posting failed : \(err?.localizedDescription as Any)")
-                    return
-                }
-                
-                CTASnackbarHelper.showMessage(message: "Los datos se guardaron correctamente")
-                
-                //TODO Función para limpiar los campos
-            }    
-            
-        } catch let error {
-            print(error)
-        }               
+        viewModel.save(name: name, lastname: lastname, age: age, birthdate: birthdate)
     }
 
     @IBAction func logoutButtonTapped(_ sender: Any) {
@@ -124,8 +106,29 @@ class CTACustomerViewController: CTABaseViewController {
     }
 }
 
+// MARK CTASignOutDelegate
+
 extension CTACustomerViewController : CTASignOutDelegate {
     func onSignOut() {
         navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+// MARK CTACustomerViewModelDelegate
+
+extension CTACustomerViewController : CTACustomerViewModelDelegate {
+    func onRequiredField(message: String) {
+        errorMessageLabel.text = message
+    }
+    
+    func onSaveSuccess(message: String) {
+        errorMessageLabel.text = EMPTY_STRING
+        CTASnackbarHelper.showMessage(message: message)
+        cleanFields()
+    }
+    
+    func onSaveError(message: String) {
+        errorMessageLabel.text = EMPTY_STRING
+        CTASnackbarHelper.showMessage(message: message)
     }
 }

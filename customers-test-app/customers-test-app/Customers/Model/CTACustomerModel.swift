@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct CustomerModel : Codable {
+public struct CTACustomerModel : Codable {
     let name: String
     let lastname: String
     let age: Int
