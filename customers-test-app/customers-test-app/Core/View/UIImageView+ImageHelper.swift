@@ -12,7 +12,7 @@ extension UIImageView {
     
     public func setImage(imageUrl: String){
         
-g        if let url = URL(string: imageUrl){
+        if let url = URL(string: imageUrl){
             
             URLSession.shared.dataTask(with: url, completionHandler: { [weak self] (data, response, error) in
                 guard error == nil else {
