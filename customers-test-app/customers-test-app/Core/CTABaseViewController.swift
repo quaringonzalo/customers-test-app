@@ -19,8 +19,8 @@ class CTABaseViewController: UIViewController {
     }
     
     public func showBackButton(show: Bool){
-        navigationItem.leftBarButtonItem = nil
-        navigationItem.hidesBackButton = !show
+        navigationItem.title = show ? title : EMPTY_STRING
+        navigationItem.hidesBackButton = !show        
     }
 
 }

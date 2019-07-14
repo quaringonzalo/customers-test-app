@@ -151,6 +151,9 @@
                                         <constraint firstAttribute="height" constant="48" id="zU4-P4-SEn"/>
                                     </constraints>
                                     <state key="normal" title="Consultar clientes"/>
+                                    <connections>
+                                        <action selector="onGetCustomers:" destination="-1" eventType="touchUpInside" id="ju5-Te-sC8"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMc-Si-QZ0">
                                     <rect key="frame" x="32" y="8" width="311" height="21"/>

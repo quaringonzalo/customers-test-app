@@ -38,26 +38,6 @@ class CTACustomerViewController: CTABaseViewController {
         
         viewModel = CTACustomerViewModel()
         viewModel.delegate = self
-        
-        //TODO Mover esto a un controller para popular una collectionView
-//        var ref: DatabaseReference!
-//        ref = Database.database().reference().child("customers")
-//        
-//        ref.observeSingleEvent(of: DataEventType.value, with: {(snapshot) in
-//            guard let value = snapshot.value else { return }
-//            
-//            do {
-//                
-//                let customerList = try FirebaseDecoder().decode([String:CustomerModel].self, from: value)
-//                
-//                let customerArray : [CustomerModel] = customerList.map { $0.value }
-//                print(customerArray)
-//                
-//            }catch let error {
-//                print("ERROR: \(error)")
-//            }
-//            
-//        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,6 +80,11 @@ class CTACustomerViewController: CTABaseViewController {
         viewModel.save(name: name, lastname: lastname, age: age, birthdate: birthdate)
     }
 
+    @IBAction func onGetCustomers(_ sender: Any) {
+        let customerListViewController = CTACustomerListViewController()
+        navigationController?.pushViewController(customerListViewController, animated: true)
+    }
+    
     @IBAction func logoutButtonTapped(_ sender: Any) {
         facebookLoginService.signOut()
     }

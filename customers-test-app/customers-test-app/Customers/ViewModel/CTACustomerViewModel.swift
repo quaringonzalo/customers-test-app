@@ -25,7 +25,7 @@ public class CTACustomerViewModel: NSObject {
         
         service = CTACustomerService()
         
-        service.successBlock = { [weak self] in
+        service.successBlock = { [weak self] (response) in
             self?.delegate?.onSaveSuccess(message: "Los datos se guardaron correctamente")
         }
         
