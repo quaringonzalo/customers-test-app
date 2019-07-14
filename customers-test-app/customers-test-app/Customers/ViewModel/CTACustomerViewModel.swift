@@ -26,7 +26,7 @@ public class CTACustomerViewModel: NSObject {
         service = CTACustomerService()
         
         service.successBlock = { [weak self] (response) in
-            self?.delegate?.onSaveSuccess(message: "Los datos se guardaron correctamente")
+            self?.delegate?.onSaveSuccess(message: SUCCESS_MESSAGE)
         }
         
         service.failureBlock = { [weak self] (error) in 
@@ -37,7 +37,7 @@ public class CTACustomerViewModel: NSObject {
     public func save(name: String?, lastname: String?, age: String?, birthdate: Date?){
         
         guard name != EMPTY_STRING, lastname != EMPTY_STRING, age != EMPTY_STRING, let birthdate = birthdate  else {
-            delegate?.onRequiredField(message: "Debe completar todos los datos")
+            delegate?.onRequiredField(message: REQUIRED_FIELDS_MESSAGE)
             return
         }
         

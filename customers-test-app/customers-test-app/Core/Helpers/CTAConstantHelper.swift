@@ -10,3 +10,5 @@ import UIKit
 
 public let EMPTY_STRING = ""
 public let DEFAULT_ERROR = "Ocurrió un error. Intente nuevamente!"
+public let SUCCESS_MESSAGE = "Los datos se guardaron correctamente"
+public let REQUIRED_FIELDS_MESSAGE = "Debe completar todos los datos"
