@@ -10,21 +10,12 @@ import UIKit
 
 class CTABaseViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     public func showNavigationBar(show: Bool){
         navigationController?.setNavigationBarHidden(!show, animated: true)
     }
     
     public func showBackButton(show: Bool){
+        navigationController?.navigationBar.topItem?.title = show ? EMPTY_STRING : title
         navigationItem.hidesBackButton = !show        
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        title = EMPTY_STRING
-    }
-
 }

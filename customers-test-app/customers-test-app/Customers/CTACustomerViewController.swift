@@ -27,23 +27,25 @@ class CTACustomerViewController: CTABaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Registar cliente"
         
         facebookLoginService = CTAFacebookLoginService()
         facebookLoginService.signOutDelegate = self
         
+        setupKeyboard()
         loadUserInfo()
         setupTextFields()
         profilePhoto.setCornerRadiusAndBorder()
         
         viewModel = CTACustomerViewModel()
         viewModel.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(show: true)
         showBackButton(show: false)
-        title = "Registar cliente"
     }
     
     private func setupTextFields() {
@@ -69,6 +71,17 @@ class CTACustomerViewController: CTABaseViewController {
         lastnameTextField.text = EMPTY_STRING
         ageTextField.text = EMPTY_STRING
         birthdateDatePicker.date = Date.init()
+    }
+    
+    private func setupKeyboard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard(){
+        nameTextField.resignFirstResponder()
+        lastnameTextField.resignFirstResponder()
+        ageTextField.resignFirstResponder()
     }
     
     @IBAction func onSave(_ sender: Any) {
