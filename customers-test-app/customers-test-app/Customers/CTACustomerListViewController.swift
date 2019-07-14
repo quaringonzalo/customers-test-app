@@ -17,8 +17,6 @@ class CTACustomerListViewController: CTABaseViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()        
-        title = "Clientes"
-        
         setupCollectionView()
         
         viewModel = CTACustomerListViewModel()
@@ -30,6 +28,7 @@ class CTACustomerListViewController: CTABaseViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showBackButton(show: true)
+        title = "Clientes"
     }
     
     private func setupCollectionView() {

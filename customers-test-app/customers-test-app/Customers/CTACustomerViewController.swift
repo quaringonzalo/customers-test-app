@@ -27,7 +27,6 @@ class CTACustomerViewController: CTABaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Registar cliente"
         
         facebookLoginService = CTAFacebookLoginService()
         facebookLoginService.signOutDelegate = self
@@ -44,6 +43,7 @@ class CTACustomerViewController: CTABaseViewController {
         super.viewWillAppear(animated)
         showNavigationBar(show: true)
         showBackButton(show: false)
+        title = "Registar cliente"
     }
     
     private func setupTextFields() {

@@ -19,8 +19,12 @@ class CTABaseViewController: UIViewController {
     }
     
     public func showBackButton(show: Bool){
-        navigationItem.title = show ? title : EMPTY_STRING
         navigationItem.hidesBackButton = !show        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        title = EMPTY_STRING
     }
 
 }
